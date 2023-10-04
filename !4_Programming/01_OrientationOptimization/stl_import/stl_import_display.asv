@@ -1,0 +1,20 @@
+clc; clear all; close all
+
+[gm] = READ_stl('TestBody_01.stl')
+
+gm_rot = gm;
+rot_axis = 1;
+rot_angle = pi/6;
+for i = 1:size(gm,1)
+    for u = 1:3
+    gm_rot(i,:,u) = rotation(gm_rot(i,:,u), rot_axis, rot_angle);
+    end
+end
+
+
+% xco = squeeze( stlcoords(:,1,:) )';
+% yco = squeeze( stlcoords(:,2,:) )';
+% zco = squeeze( stlcoords(:,3,:) )';
+% [hpat] = patch(xco,yco,zco,'b');
+% axis equal
+% axis tight
