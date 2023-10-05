@@ -1,24 +1,9 @@
-close all
-clear all
-clc
-
-addpath(genpath('lib\')); % add whole library to searchpath
-addpath(genpath('dataset\')); % add whole dataset to searchpath
-addpath(genpath('testBodies')); 
-
-%% 
-
-% load('dataset_NoSymetricalBodies.mat')
-load('datasetBasicShapes.mat')
 
 
-load('Body_08_propsFeatures.mat')
-% load('Body_08_propsFeaturesHighRes.mat');
+for iFeature = 1:numel(bodyData.propsFeatures)
 
-for iFeature = 1:numel(propsFeatures)
-
-    I_x = squeeze(propsFeatures(iFeature).CutX.CutTight);
-    I_y = squeeze(propsFeatures(iFeature).CutY.CutTight);
+    I_x = squeeze(bodyData.propsFeatures(iFeature).CutX.CutTight);
+    I_y = squeeze(bodyData.propsFeatures(iFeature).CutY.CutTight);
 
     for iDataset = 1:numel(dataset)
  
@@ -33,13 +18,13 @@ for iFeature = 1:numel(propsFeatures)
 
     end
 
-    propsFeatures(iFeature).corr.tbl = table(CorrXXExt,CorrXYExt,CorrYYExt,CorrYXExt);
-    [propsFeatures(iFeature).corr.MaxVal...
-     propsFeatures(iFeature).corr.MaxIdx] = max(propsFeatures(iFeature).corr.tbl);
+    bodyData.propsFeatures(iFeature).corr.tbl = table(CorrXXExt,CorrXYExt,CorrYYExt,CorrYXExt);
+    [bodyData.propsFeatures(iFeature).corr.MaxVal...
+     bodyData.propsFeatures(iFeature).corr.MaxIdx] = max(bodyData.propsFeatures(iFeature).corr.tbl);
     
 
-    [MAX(1), IDX(1)] = max(propsFeatures(iFeature).corr.tbl.CorrXXExt + propsFeatures(iFeature).corr.tbl.CorrYYExt);
-    [MAX(2), IDX(2)] = max(propsFeatures(iFeature).corr.tbl.CorrXYExt + propsFeatures(iFeature).corr.tbl.CorrYXExt);
+    [MAX(1), IDX(1)] = max(bodyData.propsFeatures(iFeature).corr.tbl.CorrXXExt + bodyData.propsFeatures(iFeature).corr.tbl.CorrYYExt);
+    [MAX(2), IDX(2)] = max(bodyData.propsFeatures(iFeature).corr.tbl.CorrXYExt + bodyData.propsFeatures(iFeature).corr.tbl.CorrYXExt);
 
     [~ ,I] = max(MAX);
 
@@ -66,7 +51,7 @@ for iFeature = 1:numel(propsFeatures)
 
     identifiedBody = dataset(Idx).name;
     identifiedBody(strfind(identifiedBody,'.STL'):end) = [];
-    propsFeatures(iFeature).basicShape = identifiedBody;
+    bodyData.propsFeatures(iFeature).basicShape = identifiedBody;
 
     disp(sprintf('Feature: %i, Identified as: %s',iFeature,identifiedBody));
 

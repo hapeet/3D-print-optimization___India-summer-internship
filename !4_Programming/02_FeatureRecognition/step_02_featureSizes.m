@@ -5,12 +5,12 @@ clc; close all;
 
 %% dimensional properties of feature - measured in mm
 
-for iFeature = 1:numel(propsFeatures)
-    F = propsFeatures(iFeature);
+for iFeature = 1:numel(bodyData.propsFeatures)
+    F = bodyData.propsFeatures(iFeature);
 
-    pointsFeature = F.featurePoints.down * resolution;
-    pointsOverhangTop = F.featurePoints.overhangTop * resolution;
-    pointsSupportBtm = F.featurePoints.supportBtm * resolution;
+    pointsFeature = F.featurePoints.down * bodyData.params.resolution;
+    pointsOverhangTop = F.featurePoints.overhangTop * bodyData.params.resolution;
+    pointsSupportBtm = F.featurePoints.supportBtm * bodyData.params.resolution;
 
 
     % Feature down facing points
@@ -32,7 +32,7 @@ for iFeature = 1:numel(propsFeatures)
 
     D = struct;
 
-    D.area =  F.Area*resolution^2;
+    D.area =  F.Area*bodyData.params.resolution^2;
     D.xWidth = (featureXmax-featureXmin+1);
     D.yWidth = (featureYmax-featureYmin+1);     
 
@@ -52,5 +52,5 @@ for iFeature = 1:numel(propsFeatures)
     D.overhangHeight.avg = mean(overhangHeight);
 
 
-    propsFeatures(iFeature).dimensions = D;
+    bodyData.propsFeatures(iFeature).dimensions = D;
 end

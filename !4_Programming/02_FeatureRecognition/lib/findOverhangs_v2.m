@@ -120,9 +120,9 @@ function [propsFeatures,ptsDown,ptsDownNoBtmFiltered, labelsNoBtmFiltered, ptsUp
 
         % 3D bounding box [xmin,xmax;ymin,ymax;zmin,zmax] - >
         % z form support btm to overhang top
-        BB = [min(featurePoints.down(:,1)),max(featurePoints.down(:,1));...
-              min(featurePoints.down(:,2)),max(featurePoints.down(:,2));...
-              min(featurePoints.down(:,3)),max(featurePoints.down(:,3));...                 % height of feature
+        BB = [min(featurePoints.down(:,1)),max(featurePoints.down(:,1));...                 % X span of feature
+              min(featurePoints.down(:,2)),max(featurePoints.down(:,2));...                 % Y span of feature
+              min(featurePoints.down(:,3)),max(featurePoints.down(:,3));...                 % Z span - height of feature
               median(featurePoints.supportBtm(:,3)),median(featurePoints.overhangTop(:,3))];    % height from bottom of support to top of overhang
         
         
