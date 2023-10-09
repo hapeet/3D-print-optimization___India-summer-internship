@@ -8,8 +8,11 @@ addpath(genpath('lib\')); % add whole library to searchpath
 addpath(genpath('dataset\')); % add whole dataset to searchpath
 addpath(genpath('datasetBasicShapes\')); % add whole dataset to searchpath
 
-% STLfiles = dir('dataset\**\*.STL');
-STLfiles = dir('datasetBasicShapes\**\*.STL');
+STLfiles = dir('dataset\**\*.STL');
+
+
+% addpath(genpath('testBodies'))
+% STLfiles = dir('testBodies\testBody_8\*.STL');
 
 %% process bodies
 

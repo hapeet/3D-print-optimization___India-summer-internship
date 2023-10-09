@@ -31,23 +31,23 @@ for iFeature = 1:numel(bodyData.propsFeatures)
     Idx = IDX(I);
 
 
-    % figure
-    % title(sprintf('Feature: %i',iDataset))
-    % subplot(2,2,1)
-    % imshow(I_x);axis xy
-    % title 'Feature cut I_x'
-    % subplot(2,2,2)
-    % imshow(I_y);axis xy
-    % title 'Feature cut I_y'
-    % 
-    % 
-    % subplot(2,2,3)
-    % imshow(dataset(Idx).Features.CutXImage.CutTight);axis xy
-    % title 'Dataset cut I_x'
-    % subplot(2,2,4)
-    % imshow(dataset(Idx).Features.CutYImage.CutTight);axis xy
-    % title 'Dataset cut I_y'
-    % shg
+    figure
+    title(sprintf('Feature: %i',iDataset))
+    subplot(2,2,1)
+    imshow(I_x);axis xy
+    title 'Feature cut I_x'
+    subplot(2,2,2)
+    imshow(I_y);axis xy
+    title 'Feature cut I_y'
+
+
+    subplot(2,2,3)
+    imshow(dataset(Idx).Features.CutXImage.CutTight);axis xy
+    title 'Dataset cut I_x'
+    subplot(2,2,4)
+    imshow(dataset(Idx).Features.CutYImage.CutTight);axis xy
+    title 'Dataset cut I_y'
+    shg
 
     identifiedBody = dataset(Idx).name;
     identifiedBody(strfind(identifiedBody,'.STL'):end) = [];
