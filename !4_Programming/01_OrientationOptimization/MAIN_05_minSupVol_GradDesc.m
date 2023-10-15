@@ -4,8 +4,9 @@ clc; clear all; close all;
 % readFileName = 'testBodies\Body_01.stl';
 % readFileName = 'testBodies\Body_02.stl';
 % readFileName = 'testBodies\Body_03.stl';
-readFileName = 'testBodies\Body_04.stl';
+% readFileName = 'testBodies\Body_04.stl';
 % readFileName = 'testBodies\TestBody_03.STL';
+readFileName = 'testBodies\testBody_10.stl';
 
 
 gm = READ_stl(readFileName);

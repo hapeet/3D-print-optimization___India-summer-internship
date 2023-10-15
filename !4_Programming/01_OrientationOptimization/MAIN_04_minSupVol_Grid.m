@@ -6,7 +6,8 @@ clc; clear all; close all;
 % readFileName = 'testBodies\Body_03.stl';        %51sec
 % readFileName = 'testBodies\Body_04.stl';        %41sec
 % readFileName = 'testBodies\Body_06.stl'; 
-readFileName = 'testBodies\Body_07.stl'; 
+% readFileName = 'testBodies\Body_07.stl'; 
+readFileName = 'testBodies\testBody_10.stl';
 
 gm = READ_stl(readFileName);
 results = struct();
