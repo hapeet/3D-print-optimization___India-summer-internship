@@ -21,16 +21,19 @@ tic
 rotXmin = 0;
 rotYmin = 0;
 
-for iteration = 1:3
+% for iteration = 1:3
 
-    if iteration==1
-        dPoint = pi/2;
-    else
-        dPoint = pi/(3^iteration);
-    end
+    % if iteration==1
+    %     dPoint = pi/2;
+    % else
+    %     dPoint = pi/(3^iteration);
+    % end
+    % 
+    % [angles_X,angles_Y] = meshgrid(rotXmin - 2*dPoint:dPoint:rotXmin + 2*dPoint,...
+    %                                rotYmin - 2*dPoint:dPoint:rotYmin + 2*dPoint);
 
-    [angles_X,angles_Y] = meshgrid(rotXmin - 2*dPoint:dPoint:rotXmin + 2*dPoint,...
-                                   rotYmin - 2*dPoint:dPoint:rotYmin + 2*dPoint);
+        [angles_X,angles_Y] = meshgrid(-pi:pi/30:pi,...
+                                       -pi:pi/30:pi);
     XYsupportVolume = zeros(size(angles_X));
     
 
@@ -44,7 +47,7 @@ for iteration = 1:3
             rot_angle_Y = angles_Y(j,k);
     
                 
-            XYsupportVolume(j,k) = supportVolumeFromAngles(gm,rot_angle_X,rot_angle_Y)
+            XYsupportVolume(j,k) = supportVolumeFromAngles(gm,rot_angle_X,rot_angle_Y);
     
             results(structIdx).Body = BodyName;
             results(structIdx).rotX = rot_angle_X;
@@ -54,13 +57,15 @@ for iteration = 1:3
             structIdx = structIdx+1;
 
             % showRotation(gm,rot_angle_X,rot_angle_Y)
+            disp(j)
+            disp(k)
         end
     end
 
     [minVal, minIdx] = min([results.SupportVolume]);
     rotXmin = results(minIdx).rotX;
     rotYmin = results(minIdx).rotY;
-end
+% end
 toc
 
 %% results interpretation
@@ -77,3 +82,8 @@ ylabel('rotation Y axis [rad]')
 
 
 showRotation(gm,rotXmin,rotYmin)
+
+%%
+figure
+colormap parula
+surf(angles_X,angles_Y,XYsupportVolume)
