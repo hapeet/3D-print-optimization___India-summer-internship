@@ -84,6 +84,14 @@ ylabel('rotation Y axis [rad]')
 showRotation(gm,rotXmin,rotYmin)
 
 %%
+
+XYsupportVolume = XYsupportVolume / max(XYsupportVolume,[],'all')
 figure
-colormap parula
+colormap flag
 surf(angles_X,angles_Y,XYsupportVolume)
+
+xlabel '\phi_x [rad]'
+ylabel '\phi_y [rad]'
+zlabel 'V_support [-]'
+colorbar
+set(gcf,'')

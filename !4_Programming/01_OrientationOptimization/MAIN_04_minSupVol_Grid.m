@@ -81,9 +81,21 @@ ylabel('rotation Y axis [rad]')
 % xlabel('X'); ylabel('Y'); zlabel('Z'); 
 
 
-showRotation(gm,rotXmin,rotYmin)
+showRotation(gm,rotXmin,rotYmin) 
 
 %%
+close all
+
+XYsupportVolume = XYsupportVolume / max(XYsupportVolume,[],'all')
 figure
-colormap parula
-surf(angles_X,angles_Y,XYsupportVolume)
+colormap winter
+s = surf(angles_X,angles_Y,XYsupportVolume)
+xlabel('\phi_x [rad]','FontSize',20)
+ylabel('\phi_y [rad]','FontSize',20)
+zlabel('V_{support} [-]','FontSize',20)
+
+fontsize(gca, 15,'points')   % 'pixels', 'centimeters', 'inches'
+
+colorbar
+axis tight
+view([45,60])
