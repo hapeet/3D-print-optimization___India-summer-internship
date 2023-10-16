@@ -41,16 +41,57 @@ for ix = 1:size(OUTPUTgrid,1)
 
 
             if OUTPUTgrid(ix,iy,iz)==1
-                X = [ix ix ix; ix ix ix+1; ix ix+1 ix+1; ix ix+1 ix];
-                Y = [iy+1 iy iy+1; iy iy iy+1; iy iy iy; iy+1 iy iy];
-                Z = [iz+1 iz iz+1; iz+1 iz+1 iz+1; iz iz+1 iz+1; iz iz iz+1];
+                % X = [ix   ix   ix; 
+                %      ix   ix   ix+1; 
+                %      ix   ix+1 ix+1; 
+                %      ix   ix+1 ix];
+                % 
+                % Y = [iy+1 iy iy+1; 
+                %      iy   iy   iy+1; 
+                %      iy   iy   iy; 
+                %      iy+1 iy   iy];
+                % 
+                % Z = [iz+1 iz   iz+1; 
+                %      iz+1 iz+1 iz+1; 
+                %      iz   iz+1 iz+1; 
+                %      iz   iz   iz+1];
+
+                X = [ix   ix   ix   ix+2; 
+                     ix   ix   ix+2 ix+2; 
+                     ix   ix+2 ix+2 ix+2; 
+                     ix   ix+2 ix   ix+2];
+                
+                Y = [iy+2 iy iy+2   iy+2; 
+                     iy   iy   iy+2 iy  ; 
+                     iy   iy   iy   iy  ; 
+                     iy+2 iy   iy   iy+2];
+
+                Z = [iz+2 iz   iz+2 iz+2; 
+                     iz+2 iz+2 iz+2 iz+2; 
+                     iz   iz+2 iz+2 iz; 
+                     iz   iz   iz+2 iz];
+
+                X = -X;
                 fill3(X,Y,Z,'g');
             end
 
             if SUPPORTgrid(ix,iy,iz)==1
-                X = [ix ix ix; ix ix ix+1; ix ix+1 ix+1; ix ix+1 ix];
-                Y = [iy+1 iy iy+1; iy iy iy+1; iy iy iy; iy+1 iy iy];
-                Z = [iz+1 iz iz+1; iz+1 iz+1 iz+1; iz iz+1 iz+1; iz iz iz+1];
+                X = [ix   ix   ix   ix+2; 
+                     ix   ix   ix+2 ix+2; 
+                     ix   ix+2 ix+2 ix+2; 
+                     ix   ix+2 ix   ix+2];
+                
+                Y = [iy+2 iy iy+2   iy+2; 
+                     iy   iy   iy+2 iy  ; 
+                     iy   iy   iy   iy  ; 
+                     iy+2 iy   iy   iy+2];
+
+                Z = [iz+2 iz   iz+2 iz+2; 
+                     iz+2 iz+2 iz+2 iz+2; 
+                     iz   iz+2 iz+2 iz; 
+                     iz   iz   iz+2 iz];   
+                X = -X;
+                
                 fill3(X,Y,Z,'b');
             end
 
@@ -67,3 +108,5 @@ axis equal
 xlabel x
 ylabel y
 zlabel z
+
+view([45 45])

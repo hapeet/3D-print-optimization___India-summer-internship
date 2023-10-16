@@ -21,7 +21,7 @@ function [supportVolume] = supportVolumeFromAngles(gm,rot_angle_X,rot_angle_Y)
             
             
             % %% Voxelise the STL:
-            resolution = 1; % size of voxel in mm
+            resolution = 2; % size of voxel in mm
             xVoxNum = abs(ceil((xmax-xmin)/resolution));
             yVoxNum = abs(ceil((ymax-ymin)/resolution));
             zVoxNum = abs(ceil((zmax-zmin)/resolution));
