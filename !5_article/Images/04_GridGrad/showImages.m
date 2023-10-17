@@ -25,6 +25,7 @@ axis tight
 view([45,60])
 
 
+
 subplot(2,1,2)
 load('angles.mat')
 
@@ -36,7 +37,7 @@ ylabel('\phi_y [rad]','FontSize',20)
 zlabel('V_{support} [-]','FontSize',20)
 
 fontsize(gca, 15,'points')   % 'pixels', 'centimeters', 'inches'
-
+zlim([0 1])
 colorbar
 axis tight
 view([45,60])
@@ -46,3 +47,5 @@ view([45,60])
 subplot(2,1,1)
 hold on 
 scatter3(angles_X,angles_Y,gridValues, 'filled','r')
+
+
