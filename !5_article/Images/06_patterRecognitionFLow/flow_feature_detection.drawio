@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net" modified="2023-10-18T05:10:54.844Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="5kQBlKKCOusY1l4shSiR" version="22.0.4" type="github">
+  <diagram name="Page-1" id="YIrYj6rQIuRGWkGWHnK4">
+    <mxGraphModel dx="782" dy="807" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;verticalAlign=middle;" edge="1" parent="1" source="gW-TxoKW5Yqw03nrLA6E-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;verticalAlign=middle;" edge="1" parent="1" source="gW-TxoKW5Yqw03nrLA6E-29" target="gW-TxoKW5Yqw03nrLA6E-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-29" value="Filter wireframe points" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Times New Roman;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="210" y="30" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;verticalAlign=middle;" edge="1" parent="1" source="gW-TxoKW5Yqw03nrLA6E-27" target="gW-TxoKW5Yqw03nrLA6E-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;verticalAlign=middle;" edge="1" parent="1" source="gW-TxoKW5Yqw03nrLA6E-31" target="gW-TxoKW5Yqw03nrLA6E-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-31" value="Cluster points to features" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Times New Roman;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="310" y="30" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-33" value="Evaluate feature parameters" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Times New Roman;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="413.5" y="30" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-27" value="Downfacing points" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Times New Roman;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="108" y="30" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-14" value="" style="group;verticalAlign=middle;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="10" y="30" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-15" value="" style="group;verticalAlign=middle;" vertex="1" connectable="0" parent="gW-TxoKW5Yqw03nrLA6E-14">
+          <mxGeometry width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gW-TxoKW5Yqw03nrLA6E-16" value="Body import&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;voxelize&lt;br&gt;wireframe&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Times New Roman;verticalAlign=middle;" vertex="1" parent="gW-TxoKW5Yqw03nrLA6E-15">
+          <mxGeometry width="70" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
