@@ -11,6 +11,7 @@ addpath(genpath('testBodies'));
 % body = 'Body_07';   % input stl 
 body = 'Body_08';   % input stl 
 % body = 'Body_09';   % input stl 
+% body = 'Body_10';   % input stl
 % body = '14_11';   % input stl 
 % body = '04_01';
 

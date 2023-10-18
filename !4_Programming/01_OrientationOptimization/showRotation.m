@@ -34,37 +34,49 @@ function showRotation(gm,rot_angle_X,rot_angle_Y)
 %%
 
             f = figure;
-            axes(f,"Position",[0.1 0.05 0.55 0.9]);
+            axes(f,"Position",[0.1 0 0.32 1]);
             % subplot(1,2,1)
             
             xco = squeeze( gm(:,1,:) )';
-            yco = squeeze( gm(:,2,:) )';
+            yco = squeeze( gm(:,2,:) )'+20;
             zco = squeeze( gm(:,3,:) )';
             patch(xco,yco,zco,'b');
             axis equal
             axis tight
-            xco = squeeze( gm_rot(:,1,:) )';
-            yco = squeeze( gm_rot(:,2,:) )';
-            zco = squeeze( gm_rot(:,3,:) )';
-            patch(xco,yco,zco,'r');
-            legend('original','rotated','Location','southeast')
-            title('Optimized part orientation')
-            axis equal
-            axis tight
-            xlabel('X')
-            ylabel('Y')
-            zlabel('Z')
-            
+            xlabel('X [mm]')
+            ylabel('Y [mm]')
+            zlabel('Z [mm]')
+            title Original orientation
+
+            grid on        
             view(30,15)
 
-            axes(f,"Position",[0.7 0.05 0.25 0.9])
-            % imagesc(XYprojection);
-            imagesc(squeeze(sum(OUTPUTgrid,3)));
-            colormap(gray(256));
-            title('XY projection')
-            ylabel('Y-direction');
-            xlabel('X-direction');
-            axis equal tight
+            % subplot(1,2,2)
+            axes(f,"Position",[0.52 0 0.43 1]);
+            xco = -squeeze( gm_rot(:,1,:) )';
+            yco = squeeze( gm_rot(:,2,:) )' + 60;
+            zco = squeeze( gm_rot(:,3,:) )' + 20;
+            patch(xco,yco,zco,'r');
+            % legend('original','rotated','Location','southeast')
+            % title('Optimized part orientation')
+            axis equal
+            axis tight
+            xlabel('X [mm]')
+            ylabel('Y [mm]')
+            zlabel('Z [mm]')
+            title Optimized orientation
+
+            grid on
+            view(30,15)
+
+            % axes(f,"Position",[0.7 0.05 0.25 0.9])
+            % % imagesc(XYprojection);
+            % imagesc(squeeze(sum(OUTPUTgrid,3)));
+            % colormap(gray(256));
+            % title('XY projection')
+            % ylabel('Y-direction');
+            % xlabel('X-direction');
+            % axis equal tight
 
 
 end
