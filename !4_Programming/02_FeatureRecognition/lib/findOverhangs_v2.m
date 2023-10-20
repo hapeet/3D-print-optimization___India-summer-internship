@@ -161,6 +161,8 @@ function [propsFeatures,ptsDown,ptsDownNoBtmFiltered, labelsNoBtmFiltered, ptsUp
 
 
         if lengthHull/propsFeatures(iFeature).Area > 1 
+
+            
             propsFeatures(iFeature) = [];
         end
         

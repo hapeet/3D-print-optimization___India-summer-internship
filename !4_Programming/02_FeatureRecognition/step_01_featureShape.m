@@ -1,4 +1,4 @@
-
+close all
 
 for iFeature = 1:numel(bodyData.propsFeatures)
 
@@ -30,24 +30,54 @@ for iFeature = 1:numel(bodyData.propsFeatures)
 
     Idx = IDX(I);
 
+    f = figure;
+    f.Position = [100 100 500 400];
+    set(f,"Color",[1 1 1]);
 
-    figure
-    title(sprintf('Feature: %i',iDataset))
+    
     subplot(2,2,1)
-    imshow(I_x);axis xy
-    title 'Feature cut I_x'
-    subplot(2,2,2)
-    imshow(I_y);axis xy
-    title 'Feature cut I_y'
+    imshow(flip(rot90(I_x,3),2));axis xy;    axis on
+    title(sprintf('Feature %i, cut I_x',iFeature))
+    xlabel('Y [px]')
+    ylabel('Z [px]')
 
+    subplot(2,2,2)
+    imshow(flip(rot90(I_y,3),2));axis xy;        axis on
+    title(sprintf('Feature %i, cut I_y',iFeature))
+    xlabel('X [px]')
+    ylabel('Z [px]')
 
     subplot(2,2,3)
-    imshow(dataset(Idx).Features.CutXImage.CutTight);axis xy
-    title 'Dataset cut I_x'
+    imshow(flip(rot90(dataset(Idx).Features.CutXImage.CutTight,3),2));axis xy;     axis on
+    title(sprintf('Identified dataset %i, cut I_x',Idx))
+    xlabel('Y [px]')
+    ylabel('Z [px]')
+
     subplot(2,2,4)
-    imshow(dataset(Idx).Features.CutYImage.CutTight);axis xy
-    title 'Dataset cut I_y'
+    imshow(flip(rot90(dataset(Idx).Features.CutYImage.CutTight,3),2));axis xy;    axis on
+    title(sprintf('Identified dataset %i, cut I_y',Idx))
+    xlabel('X [px]')
+    ylabel('Z [px]')
     shg
+    
+    saveas(f,sprintf('feature_%i_identifiedDataset_%i.png',iFeature,Idx))
+    % figure
+    % title(sprintf('Feature: %i',iDataset))
+    % subplot(2,2,1)
+    % imshow(I_x);axis xy
+    % title 'Feature cut I_x'
+    % subplot(2,2,2)
+    % imshow(I_y);axis xy
+    % title 'Feature cut I_y'
+    % 
+    % 
+    % subplot(2,2,3)
+    % imshow(dataset(Idx).Features.CutXImage.CutTight);axis xy
+    % title 'Dataset cut I_x'
+    % subplot(2,2,4)
+    % imshow(dataset(Idx).Features.CutYImage.CutTight);axis xy
+    % title 'Dataset cut I_y'
+    % shg
 
     identifiedBody = dataset(Idx).name;
     identifiedBody(strfind(identifiedBody,'.STL'):end) = [];

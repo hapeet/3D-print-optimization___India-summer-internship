@@ -76,21 +76,40 @@ for i = 1:size(wireframe,1)
   plot3(squeeze(wireframe(i,1,:)),squeeze(wireframe(i,2,:)),squeeze(wireframe(i,3,:)));
   hold on
 end
-xlabel x
-ylabel y
-zlabel z
+xlabel('X [mm]')
+ylabel('Y [mm]')
+zlabel('Z [mm]')
+
 axis equal
-title Wireframe
+
 
 %% FEATURES FROM OVERHANG
 
 [propsFeatures,ptsDown,ptsDownNoBtmFiltered, labelsNoBtmFiltered, ptsUp] = findOverhangs_v2(G,btmOffsetPx,mergeDistance,wireframe, wireframeOffset);
 
 
-pcshow(ptsDownNoBtmFiltered.Location,labelsNoBtmFiltered)
-colormap(hsv(numel(unique(labelsNoBtmFiltered))))
+pcshow(ptsDownNoBtmFiltered.Location,labelsNoBtmFiltered,"MarkerSize",40,"BackgroundColor",[1 1 1])
+colors =[     1.0000         0         0;
+    1.0000    1         1;              % feature 2 white on white background > dissapeared
+    1.0000    1.0000         0;
+    0.5000    1.0000         0;
+         0    1.0000         0;
+         0    1.0000    0.5000;
+         0    1.0000    1.0000;
+         0    0.5000    1.0000;
+         0         0    1.0000;
+    0.5000         0    1.0000;
+    1.0000         0    1.0000;
+    1.0000         0    0.5000;];
 
-title('down facing features - 1st layer removed')
+% colormap(hsv(numel(unique(labelsNoBtmFiltered))))
+colormap(colors);
+
+% colormap colorcube
+xlabel('X [mm]')
+ylabel('Y [mm]')
+zlabel('Z [mm]')
+% title('down facing features - 1st layer removed')
 %%
 
 

@@ -17,20 +17,30 @@ bodyData.propsFeatures(iFeature).CutX.negSurroundingsRatio = numel(find(bodyData
 bodyData.propsFeatures(iFeature).CutX.posSurroundingsRatio = numel(find(bodyData.propsFeatures(iFeature).CutX.posSurroundings)) / numel(bodyData.propsFeatures(iFeature).CutX.posSurroundings);
 
 
-% figure
-% subplot(2,2,[1,3])
-% imshow(squeeze(bodyData.propsFeatures(iFeature).CutX.CutMaxWidth)) 
-% axis on
-% 
-% subplot(2,2,2)
-% imshow(squeeze(bodyData.propsFeatures(iFeature).CutX.negSurroundings))
-% axis on
-% 
-% subplot(2,2,4)
-% imshow(squeeze(bodyData.propsFeatures(iFeature).CutX.posSurroundings))
-% axis on
-% 
-% close all
+f = figure
+f.Color = [1 1 1];
+f.Position = [0 300 1400 550];
+subplot(2,4,1:2)
+imshow(rot90(squeeze(bodyData.propsFeatures(iFeature).CutX.CutMaxWidth)))
+axis on
+title(sprintf('Feature %i, Extended cut I_x',iFeature))
+xlabel('Y [px]')
+ylabel('Z [px]')
+
+
+subplot(2,4,5)
+imshow(rot90(squeeze(bodyData.propsFeatures(iFeature).CutX.negSurroundings)))
+axis on
+title(sprintf('Negative direction surroundings\n density %0.1f %%',bodyData.propsFeatures(iFeature).CutX.negSurroundingsRatio*100))
+xlabel('Y [px]')
+ylabel('Z [px]')
+
+subplot(2,4,6)
+imshow(rot90(squeeze(bodyData.propsFeatures(iFeature).CutX.posSurroundings)))
+axis on
+title(sprintf('Positive direction surroundings\n density %0.1f %%',bodyData.propsFeatures(iFeature).CutX.posSurroundingsRatio*100))
+xlabel('Y [px]')
+ylabel('Z [px]')
 
 % CUT Y 
 
@@ -40,19 +50,32 @@ bodyData.propsFeatures(iFeature).CutY.posSurroundings = bodyData.propsFeatures(i
 bodyData.propsFeatures(iFeature).CutY.negSurroundingsRatio = numel(find(bodyData.propsFeatures(iFeature).CutY.negSurroundings)) / numel(bodyData.propsFeatures(iFeature).CutY.negSurroundings);
 bodyData.propsFeatures(iFeature).CutY.posSurroundingsRatio = numel(find(bodyData.propsFeatures(iFeature).CutY.posSurroundings)) / numel(bodyData.propsFeatures(iFeature).CutY.posSurroundings);
 
-% figure
-% subplot(2,2,[1,3])
-% imshow(squeeze(bodyData.propsFeatures(iFeature).CutY.CutMaxWidth)) 
-% axis on
-% 
-% subplot(2,2,2)
-% imshow(squeeze(bodyData.propsFeatures(iFeature).CutY.negSurroundings))
-% axis on
-% 
-% subplot(2,2,4)
-% imshow(squeeze(bodyData.propsFeatures(iFeature).CutY.posSurroundings))
-% axis on
-% 
-% close all
+% fy = figure
+% fy.Color = [1 1 1];
+% fy.Position = [0 300 1500 550];
+subplot(2,4,3:4)
+imshow(rot90(squeeze(bodyData.propsFeatures(iFeature).CutY.CutMaxWidth)))
+axis on
+title(sprintf('Feature %i, Extended cut I_y',iFeature))
+xlabel('X [px]')
+ylabel('Z [px]')
+
+
+subplot(2,4,7)
+imshow(rot90(squeeze(bodyData.propsFeatures(iFeature).CutY.negSurroundings)))
+axis on
+title(sprintf('Negative direction surroundings\n density %0.1f %%',bodyData.propsFeatures(iFeature).CutY.negSurroundingsRatio*100))
+xlabel('X [px]')
+ylabel('Z [px]')
+
+subplot(2,4,8)
+imshow(rot90(squeeze(bodyData.propsFeatures(iFeature).CutY.posSurroundings)))
+axis on
+title(sprintf('Positive direction surroundings\n density %0.1f %%',bodyData.propsFeatures(iFeature).CutY.posSurroundingsRatio*100))
+xlabel('X [px]')
+ylabel('Z [px]')
+
+saveas(f,sprintf('feature_%i_surroundings.png',iFeature))
+close all
 
 end
