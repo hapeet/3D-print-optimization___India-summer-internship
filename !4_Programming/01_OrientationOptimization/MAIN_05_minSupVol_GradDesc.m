@@ -105,6 +105,8 @@ rotXmin = results(minIdx).rotX;
 rotYmin = results(minIdx).rotY;
 
 
+
+
 %% results interpretation
 close all
 figure
@@ -120,4 +122,5 @@ scatter3([iterations.rotX],[iterations.rotY],[iterations.SupportVolume],'r+')
 
 
 showRotation(gm,rotXmin,rotYmin)
+
 
